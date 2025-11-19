@@ -1,0 +1,240 @@
+/* --- VARIABILI CSS (TEMI) --- */
+:root {
+    /* Light Theme Default */
+    --bg-app: #f0f0f0;
+    --fg-text: #000000;
+    --bg-text-area: #ffffff;
+    --bg-btn: #e0e0e0;
+    --bg-btn-hover: #d0d0d0;
+    --border-color: #cccccc;
+    
+    --color-success: #008000;
+    --color-fail: #cc0000;
+    --color-dim: #666666;
+    
+    --tab-bg: #d9d9d9;
+    --tab-sel-bg: #ffffff;
+    --tab-sel-fg: #000000;
+}
+
+[data-theme="dark"] {
+    /* Dark Theme Overrides */
+    --bg-app: #2b2b2b;
+    --fg-text: #ffffff;
+    --bg-text-area: #1e1e1e;
+    --bg-btn: #444444;
+    --bg-btn-hover: #555555;
+    --border-color: #555555;
+    
+    --color-success: #00ff00;
+    --color-fail: #ff4444;
+    --color-dim: #aaaaaa;
+    
+    --tab-bg: #333333;
+    --tab-sel-bg: #1e1e1e;
+    --tab-sel-fg: #ffffff;
+}
+
+/* --- LAYOUT GENERALE --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #333; /* Sfondo fuori dall'app */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.app-container {
+    background-color: var(--bg-app);
+    color: var(--fg-text);
+    width: 500px;
+    height: 600px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- INPUT & HEADER --- */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-app);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.separator {
+    font-weight: bold;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--fg-text);
+    transition: transform 0.2s;
+}
+.btn-icon:hover { transform: scale(1.1); }
+
+/* --- REGOLE & CHECKBOX --- */
+.rules-container {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.rules-container legend {
+    font-size: 0.9rem;
+    padding: 0 5px;
+    color: var(--fg-text);
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+}
+
+.checkbox-group label {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* --- PULSANTI AZIONE --- */
+.actions-row {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary {
+    background-color: var(--bg-btn);
+    color: var(--fg-text);
+}
+.btn-secondary:hover { background-color: var(--bg-btn-hover); }
+
+.btn-primary {
+    background-color: var(--bg-btn);
+    color: var(--fg-text);
+    border: 1px solid var(--border-color);
+}
+.btn-primary:hover { background-color: var(--bg-btn-hover); }
+
+/* --- TABS & OUTPUT --- */
+.output-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+    background-color: var(--tab-bg);
+}
+
+.tab-link {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--fg-text);
+    opacity: 0.7;
+}
+
+.tab-link.active {
+    background-color: var(--tab-sel-bg);
+    color: var(--tab-sel-fg);
+    font-weight: bold;
+    opacity: 1;
+    border-bottom: 2px solid var(--color-success);
+}
+
+.tab-content {
+    display: none; /* Nascosto di default */
+    flex: 1;
+    flex-direction: column;
+    background-color: var(--tab-sel-bg);
+    padding: 10px;
+    overflow: hidden;
+}
+
+.tab-content.active {
+    display: flex;
+}
+
+/* --- FORMATTAZIONE RISULTATI --- */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.metric {
+    font-size: 1.1rem;
+}
+
+.success-metric {
+    color: var(--color-success);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.total-metric {
+    color: var(--color-dim);
+}
+
+.scrollable-text {
+    flex: 1;
+    overflow-y: auto;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    background-color: var(--bg-text-area);
+    color: var(--fg-text);
+    padding: 5px;
+    border: 1px solid var(--border-color);
+}
+
+/* Classi per la colorazione del testo (Tag Config replica) */
+.txt-success { color: var(--color-success); font-weight: bold; }
+.txt-fail { color: var(--color-fail); font-weight: bold; }
+.txt-dim { color: var(--color-dim); }
+.txt-norm { color: var(--fg-text); }

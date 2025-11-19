@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D10 Roller Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- HEADER: Input e Tema -->
+        <div class="header-row">
+            <div class="input-group">
+                <label>Pool Base:</label>
+                <input type="number" id="input-base" value="5" min="0" max="99">
+                
+                <span class="separator">+</span>
+                
+                <label>Mod:</label>
+                <input type="number" id="input-mod" value="0" min="0" max="99">
+            </div>
+            
+            <button id="btn-theme" class="btn-icon" title="Cambia Tema">☾</button>
+        </div>
+
+        <!-- SEZIONE REGOLE -->
+        <fieldset class="rules-container">
+            <legend>Regole Esplosione</legend>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="exp-10" checked> Su 10</label>
+                <label><input type="checkbox" id="exp-9"> Su 9</label>
+                <label><input type="checkbox" id="exp-8"> Su 8</label>
+            </div>
+        </fieldset>
+
+        <!-- SEZIONE PULSANTI -->
+        <div class="actions-row">
+            <button id="btn-clear" class="btn btn-secondary">Svuota Risultato</button>
+            <button id="btn-roll" class="btn btn-primary">LANCIA DADI</button>
+        </div>
+
+        <!-- AREA OUTPUT (TABS) -->
+        <div class="output-container">
+            <!-- Tab Navigation -->
+            <div class="tabs">
+                <button class="tab-link active" data-tab="tab-results">Risultato Lancio</button>
+                <button class="tab-link" data-tab="tab-history">Storico (Log)</button>
+            </div>
+
+            <!-- Tab Content: Risultati -->
+            <div id="tab-results" class="tab-content active">
+                <div class="results-header">
+                    <div class="metric success-metric">Successi: <span id="lbl-success">-</span></div>
+                    <div class="metric total-metric">Totale: <span id="lbl-total">-</span></div>
+                </div>
+                <div id="txt-res" class="scrollable-text results-area">
+                    <!-- I risultati verranno iniettati qui via JS -->
+                </div>
+            </div>
+
+            <!-- Tab Content: Storico -->
+            <div id="tab-history" class="tab-content">
+                <div id="txt-hist" class="scrollable-text history-area">
+                    <!-- Lo storico verrà iniettato qui via JS -->
+                    Nessun lancio registrato.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
